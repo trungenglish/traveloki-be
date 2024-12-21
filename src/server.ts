@@ -1,17 +1,20 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+import express, { Request, Response } from 'express';
+import cors, { CorsOptions } from 'cors';
+import morgan from 'morgan';
+import compression from 'compression';
 
-const express = require('express');
-const cors = require('cors');
-const connection = require('./config/mongodb');
-const morgan = require('morgan');
-const compression = require('compression');
+import { connection } from '@/config';
+import { router } from '@/routes'
+
+dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 10000;
+const port = Number(process.env.PORT) || 10000;
 const isProduction = process.env.NODE_ENV === 'production';
 const host = isProduction ? '0.0.0.0' : 'localhost';
 
-const corsOptions = {
+const corsOptions: CorsOptions = {
     origin: [
         'http://localhost:5173',
         'http://localhost:5174'
@@ -27,7 +30,15 @@ app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api/v1', require('./routes'));
+app.use('/', router);
+
+app.get('/req', (req: Request) => {
+    return req.body
+});
+
+app.get('/res', (res: Response) => {
+  res.send('Hello World!');
+});
 
 (async() => {
     try {
