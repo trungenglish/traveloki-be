@@ -18,17 +18,43 @@
   "homepage": "https://github.com/trungenglish/traveloki-be#readme",
   "description": "",
   "dependencies": {
+    "@payos/node": "^1.0.10",
+    "@types/express": "^5.0.0",
+    "axios": "^1.7.9",
     "bcrypt": "5.1.1",
+    "bcryptjs": "^2.4.3",
     "compression": "1.7.5",
+    "cookie": "^1.0.2",
+    "cookie-parser": "^1.4.7",
     "cors": "2.8.5",
     "dotenv": "16.4.5",
-    "express": "4.21.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
     "helmet": "8.0.0",
     "jsonwebtoken": "9.0.2",
-    "mongoose": "8.8.3"
+    "mongoose": "8.8.3",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.3",
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/compression": "^1.7.5",
+    "@types/cors": "^2.8.17",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.10.2",
+    "dateformat": "^5.0.3",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0",
+    "lodash": "^4.17.21",
+    "mongoose-slug-updater": "^2.2.0",
     "morgan": "1.10.0",
-    "nodemon": "3.1.7"
+    "nodemon": "3.1.7",
+    "numeral": "^2.0.6",
+    "slugify": "^1.6.6",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.1",
+    "winston": "^3.17.0"
   }
 }
