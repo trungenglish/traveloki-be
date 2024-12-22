@@ -1,4 +1,4 @@
-export const COLLECTION_ACCOUNT = 'accounts'
-export const COLLECTION_KEYTOKEN = 'keys'
-export const COLLECTION_APIKEY = 'apikeys'
-export const COLLECTION_AIRPORT = 'airports'
+export const COLLECTION_ACCOUNT: string = 'accounts'
+export const COLLECTION_KEYTOKEN: string = 'keys'
+export const COLLECTION_APIKEY: string = 'apikeys'
+export const COLLECTION_AIRPORT: string = 'airports'

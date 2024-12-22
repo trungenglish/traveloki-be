@@ -1,7 +1,8 @@
 'use strict';
 
+import { Response } from 'express';
 import { StatusCodes, ReasonPhrases } from "@/utils/httpStatusCode";
-import { ICreated, IOK, ISuccessResponse } from "../interfaces/ICores";
+import { ICreated, IOK, ISuccessResponse } from "../interfaces";
 
 class SuccessResponse {
   message: string;
@@ -44,6 +45,6 @@ class CREATED extends SuccessResponse {
   }
 }
 
-module.exports = {
+export {
   OK, CREATED, SuccessResponse
 }
