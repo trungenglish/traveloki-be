@@ -1,4 +1,4 @@
-export const DOCUMENT_ACCOUNT = 'account'
-export const DOCUMENT_KEYTOKEN = 'key'
-export const DOCUMENT_APIKEY = 'apikey'
-export const DOCUMENT_AIRPORT = 'airport'
+export const DOCUMENT_ACCOUNT: string = 'account'
+export const DOCUMENT_KEYTOKEN: string = 'key'
+export const DOCUMENT_APIKEY: string = 'apikey'
+export const DOCUMENT_AIRPORT: string = 'airport'

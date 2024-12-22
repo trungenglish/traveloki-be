@@ -1,2 +1,2 @@
-export const STATUS_ACTIVE = 'active'
-export const STATUS_INACTIVE = 'inactive'
+export const STATUS_ACTIVE: string = 'active'
+export const STATUS_INACTIVE: string = 'inactive'

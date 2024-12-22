@@ -72,7 +72,7 @@ class ForbidenError extends ErrorResponse {
   }
 }
 
-module.exports = {
+export {
   ConflictRequestError,
   BadRequestError,
   AuthFailureError,
