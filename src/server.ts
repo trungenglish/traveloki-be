@@ -37,6 +37,11 @@ app.get('/req', (req: Request) => {
 app.get('/res', (res: Response) => {
   res.send('Hello World!');
 });
+
+app.get('/ping', (_req: Request, res: Response) => {
+  res.send('pong 🏓');
+});
+
 (async () => {
   try {
     await connection();

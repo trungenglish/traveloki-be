@@ -6,12 +6,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx nodemon",
     "build": "rimraf ./dist && tsc && tsc-alias",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
     "start": "node dist/index.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write ."
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trungenglish/traveloki-be.git"
@@ -66,6 +73,7 @@
     "morgan": "1.10.0",
     "nodemon": "^3.1.9",
     "numeral": "^2.0.6",
+    "pre-commit": "^1.2.2",
     "slugify": "^1.6.6",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.24.0",
