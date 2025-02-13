@@ -1,50 +1,52 @@
-'use strict';
+'use strict'
 
-import { Response } from 'express';
-import { StatusCodes, ReasonPhrases } from "@/utils/httpStatusCode";
-import { ICreated, IOK, ISuccessResponse } from "../interfaces";
+import { Response } from 'express'
+import { StatusCodes, ReasonPhrases } from '@/utils/httpStatusCode'
+import { CreatedResponse, ICreated, IOk, OkResponse } from '../interfaces'
 
-class SuccessResponse {
-  message: string;
-  status: number;
-  metadata: object;
+interface ISuccessResponse {
+  send(res: Response, headers: object): Response
+}
 
-  constructor({
-    message,
-    status = StatusCodes.OK,
-    reasonStatusCode = ReasonPhrases.OK,
-    metadata = {}
-  }: ISuccessResponse) {
-    this.message = message ?? reasonStatusCode,
+class SuccessResponse implements ISuccessResponse {
+  private message: string
+  private status: number
+  private metadata: object
+  constructor({ message = ReasonPhrases.OK, status = StatusCodes.OK, metadata = {} }) {
+    this.message = message || ReasonPhrases.OK
     this.status = status
     this.metadata = metadata
   }
-  send(res: Response, _headers: object = {}){
-    return res.status( this.status ).json( this )
+
+  send(res: Response, headers: object) {
+    return res.status(this.status).set(headers).json(this)
   }
 }
 
-class OK extends SuccessResponse {
-  constructor ({ message, metadata }: IOK){
+class Ok extends SuccessResponse {
+  constructor({ message, metadata = {} }: IOk) {
     super({ message, metadata })
   }
 }
 
-class CREATED extends SuccessResponse {
-  option: object;
-
-  constructor ({
-    message,
-    status = StatusCodes.CREATED,
-    reasonStatusCode = ReasonPhrases.CREATED,
-    metadata,
-    option = {}
-  }: ICreated){
-    super({ message, status, reasonStatusCode, metadata })
-    this.option = option
+class Created extends SuccessResponse {
+  constructor({ message, metadata = {} }: ICreated) {
+    super({ message, status: StatusCodes.CREATED, metadata })
   }
 }
 
-export {
-  OK, CREATED, SuccessResponse
+const OK = ({ res, message, metadata, headers = {} }: OkResponse) => {
+  new Ok({
+    message,
+    metadata
+  }).send(res, headers)
 }
+
+const CREATED = ({ res, message, metadata, headers = {} }: CreatedResponse) => {
+  new Created({
+    message,
+    metadata
+  }).send(res, headers)
+}
+
+export { OK, CREATED }

@@ -1,3 +1,2 @@
-import express from 'express';
-export const routerApiKey = express.Router();
-
+import express from 'express'
+export const routerApiKey = express.Router()

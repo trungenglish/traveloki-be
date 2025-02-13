@@ -1,1 +1,1 @@
-export * from './ICores'
+export * from './prototypesExpress'
