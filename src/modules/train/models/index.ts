@@ -1,7 +1,7 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from 'mongoose'
 
-const DOCUMENT_NAME = 'airport';
-const COLLECTION_NAME = 'airports';
+const DOCUMENT_NAME = 'airport'
+const COLLECTION_NAME = 'airports'
 
 const AirportSchema = new Schema(
   {
@@ -13,6 +13,6 @@ const AirportSchema = new Schema(
     timestamps: true,
     collection: COLLECTION_NAME
   }
-);
+)
 
-export const Airport = model(DOCUMENT_NAME, AirportSchema);
+export const Airport = model(DOCUMENT_NAME, AirportSchema)

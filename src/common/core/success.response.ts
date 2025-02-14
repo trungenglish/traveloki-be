@@ -2,15 +2,19 @@
 
 import { Response } from 'express'
 import { StatusCodes, ReasonPhrases } from '@/utils/httpStatusCode'
-import { CreatedResponse, ICreated, IOk, OkResponse } from '../interfaces'
+import { CreatedResponse, ICreated, IOk, OkResponse } from '../interfaces/responses'
 
 interface ISuccessResponse {
   send(res: Response, headers: object): Response
 }
 
 class SuccessResponse implements ISuccessResponse {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   private message: string
   private status: number
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   private metadata: object
   constructor({ message = ReasonPhrases.OK, status = StatusCodes.OK, metadata = {} }) {
     this.message = message || ReasonPhrases.OK
